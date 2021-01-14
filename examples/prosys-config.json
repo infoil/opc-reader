@@ -1,0 +1,32 @@
+[
+	{
+		"UseSecurity":false,
+		"Read":[
+				{ "id":"nsu=http://www.prosysopc.com/OPCUA/SimulationNodes/ ;i=1001" },
+				{ "id":"nsu=http://www.prosysopc.com/OPCUA/SimulationNodes/ ;i=1002" },
+				{ "id":"nsu=http://www.prosysopc.com/OPCUA/SimulationNodes/ ;i=1004" }
+			],
+		"HistoryRead":[
+				{
+					"id":"nsu=http://www.prosysopc.com/OPCUA/SimulationNodes/ ;i=1001",
+					"startTime":"2021-01-11T10:30:00",
+					"endTime":"2021-01-11T10:31:00",
+					"isReadModified":false,
+				},
+				{
+					"id":"nsu=http://www.prosysopc.com/OPCUA/SimulationNodes/ ;i=1002",
+					"isReadModified":false,
+				},
+				{
+					"id":"nsu=http://www.prosysopc.com/OPCUA/SimulationNodes/ ;i=1003",
+					"isReadModified":false,
+					"numValuesPerNode":2,
+				},
+				{
+					"id":"nsu=http://www.prosysopc.com/OPCUA/SimulationNodes/ ;i=1004",
+					"isReadModified":false,
+					"returnBounds":false,
+				}
+			]
+	}
+]

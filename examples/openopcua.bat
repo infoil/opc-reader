@@ -1,0 +1,1 @@
+dotnet opcreader.dll --autoaccept --testconnectivity- --testunsecureconnectivity- --appcertstoretype=X509Store --defaultendpointurl=opc.tcp://127.0.0.1:2406/OpenOpcUaCoreServer --loglevel=debug --configfile=openopcua-config.json --csvOutput=output.csv

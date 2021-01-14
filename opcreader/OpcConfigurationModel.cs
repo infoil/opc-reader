@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
-namespace OpcClient
+namespace OpcReader
 {
 	using System.ComponentModel;
 	using static Program;
@@ -30,10 +30,11 @@ namespace OpcClient
 			Id = id;
 			Interval = interval;
 		}
-		
+
 		// Id of the target node. Can be:
 		// a NodeId ("ns=")
 		// an ExpandedNodeId ("nsu=")
+		[JsonProperty("id")]
 		public string Id;
 
 		// if set action will recur with a period of Interval seconds, if set to 0 it will done only once
@@ -72,6 +73,25 @@ namespace OpcClient
 			Id = action.Id;
 			Interval = action.Interval;
 		}
+	}
+
+	/// <summary>
+	/// Thumb class which purpose is the creation of an OpcHistoryReadAction. It have the same fields as ReadRawModifiedDetails to allow the user specify (in a JSON config file) what to read.
+	/// </summary>
+	public class HistoryReadActionModel : ActionModel
+	{
+		// Don't forget to specify also the node ID ("id") in the config file.
+
+		[JsonProperty("startTime")]
+		public DateTime StartTime = DateTime.UtcNow.AddMinutes(-5);
+		[JsonProperty("endTime")]
+		public DateTime EndTime = DateTime.UtcNow;
+		[JsonProperty("isReadModified")]
+		public bool IsReadModified = true;
+		[JsonProperty("numValuesPerNode")]
+		public uint NumValuesPerNode = 0;
+		[JsonProperty("returnBounds")]
+		public bool ReturnBounds = true;
 	}
 
 	/// <summary>
@@ -171,6 +191,12 @@ namespace OpcClient
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public List<ReadActionModel> Read { get; set; }
+
+		/// <summary>
+		/// The last value read actions on the endpoint.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public List<HistoryReadActionModel> HistoryRead { get; set; }
 
 		/// <summary>
 		/// The test actions on the endpoint.

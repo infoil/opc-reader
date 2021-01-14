@@ -1,0 +1,9 @@
+[
+	{
+		"UseSecurity":false,
+		"Test":[
+				{ "id":"ns=2;i=65", "interval":10 },
+				{ "id":"nsu=http://OpenOpcUa.org/Simulation;i=65", "interval":10 }
+			]
+	}
+]

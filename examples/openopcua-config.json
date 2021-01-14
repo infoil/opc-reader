@@ -1,0 +1,10 @@
+[
+	{
+		"UseSecurity":false,
+		"Read":[
+				{ "id":"nsu=http://OpenOpcUa.org/Simulation ;i=58" },
+				{ "id":"nsu=http://OpenOpcUa.org/Simulation ;i=61" },
+				{ "id":"nsu=http://OpenOpcUa.org/Simulation ;i=65" }
+			]
+	}
+]

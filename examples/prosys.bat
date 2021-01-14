@@ -1,0 +1,1 @@
+dotnet opcreader.dll --autoaccept --testconnectivity- --testunsecureconnectivity- --appcertstoretype=X509Store --defaultendpointurl=opc.tcp://127.0.0.1:53530/OPCUA/SimulationServer --loglevel=debug --configfile=prosys-config.json --csvOutput=output.csv
