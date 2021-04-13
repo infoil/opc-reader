@@ -247,6 +247,7 @@ namespace OpcReader
             catch (Exception e)
             {
                 Logger.Error(e, "Error in ConnectSessions.");
+                Environment.ExitCode = 1;
             }
             finally
             {
@@ -297,6 +298,7 @@ namespace OpcReader
                             ServiceResultException = sre;
                         }
                         Logger.Error(e, $"Error while executing action on endpoint '{EndpointUrl}'");
+                        Environment.ExitCode = 1;
                     }
                     action.ReportResult(ServiceResultException);
 
@@ -314,6 +316,7 @@ namespace OpcReader
             catch (Exception e)
             {
                 Logger.Error(e, "Error in executing actions.");
+                Environment.ExitCode = 1;
             }
             finally
             {
@@ -349,6 +352,7 @@ namespace OpcReader
             catch (Exception e)
             {
                 Logger.Error(e, $"The NodeId has an invalid format '{id}'!");
+                Environment.ExitCode = 1;
             }
             return nodeId;
         }

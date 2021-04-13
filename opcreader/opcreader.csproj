@@ -37,10 +37,18 @@
     <EmbeddedResource Remove="Logs\**" />
     <None Remove="CertificateStores\**" />
     <None Remove="Logs\**" />
-    <None Include="..\LICENSE.txt">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
+    <None Remove="COPYRIGHT.md" />
+    <None Remove="LICENSE.txt" />
+    <None Remove="README.md" />
+    <Content Include="COPYRIGHT.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LICENSE.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="README.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="..\OPC reader.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>

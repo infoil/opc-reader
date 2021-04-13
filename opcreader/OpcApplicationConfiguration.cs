@@ -169,11 +169,13 @@ namespace OpcReader
             if ((e.TraceMask & OpcTraceToLoggerError) != 0)
             {
                 Logger.Error(message);
+                Environment.ExitCode = 1;
                 return;
             }
             if ((e.TraceMask & OpcTraceToLoggerFatal) != 0)
             {
                 Logger.Fatal(message);
+                Environment.ExitCode = 1;
                 return;
             }
             return;

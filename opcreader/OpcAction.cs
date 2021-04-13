@@ -80,6 +80,7 @@ namespace OpcReader
 		public virtual void Execute(OpcSession session)
 		{
 			Logger.Error($"No Execute method for action ({Description}) defined.");
+			Environment.ExitCode = 1;
 			throw new Exception($"No Execute method for action ({ Description}) defined.");
 		}
 

@@ -181,7 +181,8 @@ namespace OpcReader
             }
             catch (Exception e)
             {
-                Logger.Fatal(e, "Loading of the action configuration file failed. Does the file exist and has correct syntax? Exiting...");
+                Logger.Fatal(e, "Error: loading of the action configuration file failed. Does the file exist and has correct syntax? Exiting...");
+                Environment.ExitCode = 1;
                 return false;
             }
             finally
@@ -232,7 +233,8 @@ namespace OpcReader
             }
             catch (Exception e)
             {
-                Logger.Fatal(e, "Creation of the internal OPC management structures failed. Exiting...");
+                Logger.Fatal(e, "Error: creation of the internal OPC management structures failed. Exiting...");
+                Environment.ExitCode = 1;
                 return false;
             }
             finally

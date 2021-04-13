@@ -316,25 +316,26 @@ namespace OpcReader
                         { "h|help", "show this message and exit", h => shouldShowHelp = h != null },
                     };
 
-            List<string> extraArgs = new List<string>();
-            try
-            {
-                // parse the command line
-                extraArgs = options.Parse(args);
-            }
-            catch (OptionException e)
-            {
-                // initialize logging
-                InitLogging();
-
-                    // show message
-                    Logger.Fatal(e, "Error in command line options");
-                    Logger.Error($"Command line arguments: {String.Join(" ", args)}");
-
-                    // show usage
-                    Usage(options);
-                    return;
+                List<string> extraArgs = new List<string>();
+                try
+                {
+                    // parse the command line
+                    extraArgs = options.Parse(args);
                 }
+                catch (OptionException e)
+                {
+                    // initialize logging
+                    InitLogging();
+
+                        // show message
+                        Logger.Fatal(e, "Error in command line options");
+                        Environment.ExitCode = 1;
+                        Logger.Error($"Command line arguments: {String.Join(" ", args)}");
+
+                        // show usage
+                        Usage(options);
+                        return;
+                    }
 
                 // initialize logging
                 InitLogging();
@@ -350,6 +351,7 @@ namespace OpcReader
                 if (extraArgs.Count > 0)
                 {
                     Logger.Error("Error in command line options");
+                    Environment.ExitCode = 1;
                     Logger.Error($"Command line arguments: {String.Join(" ", args)}");
                     Usage(options);
                     return;
@@ -426,6 +428,7 @@ namespace OpcReader
             catch (Exception e)
             {
                 Logger.Fatal(e, e.StackTrace);
+                Environment.ExitCode = 1;
                 e = e.InnerException ?? null;
                 while (e != null)
                 {
@@ -449,6 +452,7 @@ namespace OpcReader
             catch (Exception e)
             {
                 Logger.Fatal(e, "Failed to start all sessions.");
+                Environment.ExitCode = 1;
             }
             finally
             {
