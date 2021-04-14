@@ -172,6 +172,7 @@ namespace OpcReader
 			UseSecurity = true;
 			Read = new List<ReadActionModel>();
 			Test = new List<TestActionModel>();
+			HistoryRead = new List<HistoryReadActionModel>();
 		}
 
 		/// <summary>
