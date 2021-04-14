@@ -106,7 +106,7 @@ namespace OpcReader
                         },
                         { "di|diagnosticsinterval=", $"shows diagnostic info at the specified interval in seconds (need log level info). 0 disables diagnostic output.\nDefault: {DiagnosticsInterval}", (uint u) => DiagnosticsInterval = u },
 
-                        { "lf|logfile=", $"the filename of the logfile to use.\nDefault: './{_logFileName}'", (string l) => _logFileName = l },
+                        { "lf|logfile=", $"the filename of the logfile to use.\nDefault: don't write logfile.", (string l) => _logFileName = l },
                         { "lt|logflushtimespan=", $"the timespan in seconds when the logfile should be flushed.\nDefault: {_logFileFlushTimeSpanSec} sec", (int s) => {
                                 if (s > 0)
                                 {
@@ -714,7 +714,7 @@ namespace OpcReader
             return fileNames;
         }
 
-        private static string _logFileName = $"{Utils.GetHostName()}-{ProgramName.ToLower()}.log";
+        private static string _logFileName;
         private static string _logLevel = "info";
         private static TimeSpan _logFileFlushTimeSpanSec = TimeSpan.FromSeconds(30);
         private static string _csvFileName = "";
