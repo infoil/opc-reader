@@ -1,6 +1,13 @@
 ## OPC reader changelog
 
 <a name="0.1.2"></a>
+# 0.2.0 (2022-01-21)
+
+*Changes*
+* Use Regional Settings to generate the CSV file.
+* Libraries updated.
+
+<a name="0.1.2"></a>
 # 0.1.2 (2021-04-14)
 
 *Changes*

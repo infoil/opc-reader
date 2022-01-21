@@ -288,6 +288,10 @@ namespace OpcReader
 							action.Execute(this);
 							ServiceResultException = null;
 						}
+						else
+						{
+							Logger.Error("Not connected to endpoint.");
+						}
 					}
 					catch (Exception e)
 					{

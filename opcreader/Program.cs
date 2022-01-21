@@ -465,7 +465,7 @@ namespace OpcReader
 		/// </summary>
 		public async static Task SessionShutdownAsync()
 		{
-            if (HaveToWriteCsv)
+			if (HaveToWriteCsv && csvWriter != null)
 			{
 				csvWriter.Flush();
 				csvWriter.Dispose();
@@ -729,7 +729,7 @@ namespace OpcReader
 				Logger.Debug("Initializing Program.CsvWriter...");
 				StreamWriter writer = new StreamWriter(_csvFileName);
                 CsvHelper.Configuration.CsvConfiguration config =
-					new CsvHelper.Configuration.CsvConfiguration(System.Globalization.CultureInfo.InvariantCulture) {
+					new CsvHelper.Configuration.CsvConfiguration(System.Globalization.CultureInfo.CurrentUICulture) {
 							HasHeaderRecord = false
 						};
 				csvWriter = new CsvWriter(writer, config);
