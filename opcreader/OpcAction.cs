@@ -194,10 +194,10 @@ namespace OpcReader
 			Logger.Information($"Value ({Description}): {dataValue1.Value}");
 		}
 
-        /// <summary>
-        /// Write the receiver to the CSV file.
-        /// </summary>
-        protected virtual void WriteToCsvFile()
+		/// <summary>
+		/// Write the receiver to the CSV file.
+		/// </summary>
+		protected virtual void WriteToCsvFile()
 		{
 			TMValue tmvalue =
 				new TMValue(
@@ -282,7 +282,7 @@ namespace OpcReader
 		/// Write the DataValue 'dv' to the CSV file.
 		/// </summary>
 		protected virtual void WriteDataValueToCsvFile(DataValue dv)
-        {
+		{
 			TMValue tmvalue =
 				new TMValue(
 						OpcNodeId.ToString(),
@@ -296,21 +296,21 @@ namespace OpcReader
 
 	public class TMValue
 	{
-        public string Tag { get; set; }
-        public DateTime DateAndTime { get; set; }
-        public string Value { get; set; }
-        public string Status { get; set; } = "";
+		public string Tag { get; set; }
+		public DateTime DateAndTime { get; set; }
+		public string Value { get; set; }
+		public string Status { get; set; } = "";
 
-        public TMValue(string tag, DateTime dateAndTime, string value)
+		public TMValue(string tag, DateTime dateAndTime, string value)
 		{
 			Tag = tag;
 			DateAndTime = dateAndTime;
 			Value = value;
 		}
 		public TMValue(string tag, DateTime dateAndTime, string value, string status):this(tag, dateAndTime, value)
-        {
+		{
 			Status = status;
-        }
+		}
 
 		/// <summary>
 		/// Write the receiver to the CSV file.
